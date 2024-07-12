@@ -3,6 +3,7 @@ package com.a1st.userlogin.controller;
 import com.a1st.userlogin.dto.RequestResponse;
 import com.a1st.userlogin.entity.User;
 import com.a1st.userlogin.service.UserService;
+import jakarta.annotation.security.RolesAllowed;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +41,6 @@ public class UserController {
 
   @GetMapping("/admin/get-all-users")
   public ResponseEntity<RequestResponse> getAllUsers() {
-    log.info("reached");
     return ResponseEntity.ok(userService.getAllUsers());
   }
 
