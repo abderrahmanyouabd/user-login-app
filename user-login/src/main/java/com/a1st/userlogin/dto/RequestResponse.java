@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,12 +22,12 @@ public class RequestResponse {
     private String message;
     private String token;
     private String refreshToken;
-    private LocalDateTime expirationTime;
+    private String expirationTime;
     private String name;
     private String city;
     private String role;
     private String email;
     private String password;
     private User users;
-    private List<User> usersList;
+    private List<User> usersList = new ArrayList<>();
 }
