@@ -42,7 +42,7 @@ export class UsersService {
       'Authorization': `Bearer ${token}`
     })
     try{
-      const response =  this.http.get<any>(url, {headers}).toPromise()
+      const [response] = await Promise.all([this.http.get<any>(url, {headers})])
       return response;
     }catch(error){
       throw error;
@@ -55,7 +55,7 @@ export class UsersService {
       'Authorization': `Bearer ${token}`
     })
     try{
-      const response =  this.http.get<any>(url, {headers}).toPromise()
+      const [response] = await Promise.all([this.http.get<any>(url, {headers})])
       return response;
     }catch(error){
       throw error;
@@ -68,7 +68,7 @@ export class UsersService {
       'Authorization': `Bearer ${token}`
     })
     try{
-      const response =  this.http.get<any>(url, {headers}).toPromise()
+      const [response] = await Promise.all([this.http.get<any>(url, {headers})])
       return response;
     }catch(error){
       throw error;
