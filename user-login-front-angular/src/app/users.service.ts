@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {lastValueFrom} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class UsersService {
 
     const url = this.baseUrl + "/auth/login";
     try {
-      const [response] = await Promise.all([this.http.post<any>(url, {email, password})]);
+      const response = await lastValueFrom(this.http.post<any>(url, {email, password}));
       return response;
     } catch (error){
       throw error;
