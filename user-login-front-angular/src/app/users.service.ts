@@ -29,7 +29,7 @@ export class UsersService {
     //   'Authorization': `Bearer ${token}`
     // })
     try {
-      const [response] = await Promise.all([this.http.post(url, userData)]);
+      const response = await lastValueFrom(this.http.post(url, userData));
       return response;
     } catch (error){
       throw error;
@@ -56,7 +56,7 @@ export class UsersService {
       'Authorization': `Bearer ${token}`
     })
     try{
-      const [response] = await Promise.all([this.http.get<any>(url, {headers})])
+      const response = await lastValueFrom(this.http.get<any>(url, {headers}))
       return response;
     }catch(error){
       throw error;
